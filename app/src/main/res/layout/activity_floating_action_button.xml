@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/main"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".FloatingActionButtonActivity">
+
+    <com.google.android.material.floatingactionbutton.FloatingActionButton
+        android:id="@+id/fabAddButton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="32dp"
+        android:layout_marginBottom="32dp"
+        android:clickable="true"
+        app:backgroundTint="#2BB2F2"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:srcCompat="@drawable/ic_adicionar_24"
+        app:tint="#F0F0F0" />
+
+    <androidx.constraintlayout.widget.Group
+        android:id="@+id/groupMenu"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:visibility="gone"
+        app:constraint_referenced_ids="fabCamera,fabMusic" />
+
+    <com.google.android.material.floatingactionbutton.FloatingActionButton
+        android:id="@+id/fabCamera"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="24dp"
+        android:clickable="true"
+        app:fabCustomSize="42dp"
+        app:fabSize="mini"
+        app:layout_constraintBottom_toTopOf="@+id/fabAddButton"
+        app:layout_constraintEnd_toEndOf="@+id/fabAddButton"
+        app:layout_constraintStart_toStartOf="@+id/fabAddButton"
+        app:srcCompat="@drawable/ic_add_foto_24"
+        app:tint="#2BB2F2" />
+
+    <com.google.android.material.floatingactionbutton.FloatingActionButton
+        android:id="@+id/fabMusic"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="24dp"
+        android:clickable="true"
+        app:fabCustomSize="42dp"
+        app:fabSize="mini"
+        app:layout_constraintBottom_toTopOf="@+id/fabCamera"
+        app:layout_constraintEnd_toEndOf="@+id/fabCamera"
+        app:layout_constraintStart_toStartOf="@+id/fabCamera"
+        app:srcCompat="@drawable/ic_add_music_24"
+        app:tint="#2BB2F2" />
+</androidx.constraintlayout.widget.ConstraintLayout>
