@@ -30,6 +30,24 @@
             android:hint="Digite seu e-mail"
             android:inputType="textEmailAddress" />
 
+        <RadioGroup
+            android:id="@+id/rgGenero"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <RadioButton
+                android:id="@+id/rbFeminino"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Feminino" />
+
+            <RadioButton
+                android:id="@+id/rbMasculino"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Masculino" />
+        </RadioGroup>
+
         <CheckBox
             android:id="@+id/cbPoliticas"
             android:layout_width="match_parent"

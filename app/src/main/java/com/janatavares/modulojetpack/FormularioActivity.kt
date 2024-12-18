@@ -28,6 +28,10 @@ class FormularioActivity : AppCompatActivity() {
                 //checkbox()
             }*/
 
+            btEnviar.setOnClickListener {
+                radioButton()
+            }
+
             /*cbPoliticas.setOnClickListener {
                 checkbox()
             }
@@ -45,6 +49,17 @@ class FormularioActivity : AppCompatActivity() {
             }
         }
 
+    }
+
+    private fun radioButton() {
+
+        val genero = when(binding.rgGenero.checkedRadioButtonId){
+            binding.rbFeminino.id -> "Feminino"
+            binding.rbMasculino.id -> "Masculino"
+            else -> "Não informado"
+        }
+        binding.textResultado.text = "Genero: $genero"
+        binding.rgGenero.clearCheck()
     }
 
     /*private fun checkbox() {
