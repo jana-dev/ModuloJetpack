@@ -60,6 +60,12 @@
             android:layout_height="wrap_content"
             android:text="Aceito receber e-mail " />
 
+        <Switch
+            android:id="@+id/switchNotificacoes"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Receber notificações" />
+
         <Button
             android:id="@+id/btEnviar"
             android:layout_width="match_parent"
@@ -71,5 +77,6 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="Resultado" />
+
     </LinearLayout>
 </androidx.constraintlayout.widget.ConstraintLayout>

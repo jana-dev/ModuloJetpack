@@ -1,10 +1,12 @@
 package com.janatavares.modulojetpack
 
 import android.os.Bundle
+import android.widget.Toast
 import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.ViewCompat
 import androidx.core.view.WindowInsetsCompat
+import com.google.android.material.snackbar.Snackbar
 import com.janatavares.modulojetpack.databinding.ActivityFormularioBinding
 
 class FormularioActivity : AppCompatActivity() {
@@ -24,12 +26,10 @@ class FormularioActivity : AppCompatActivity() {
         }
 
         with(binding){
-            /*btEnviar.setOnClickListener {
-                //checkbox()
-            }*/
-
             btEnviar.setOnClickListener {
-                radioButton()
+                //checkbox()
+                //radioButton()
+                exibirSnackBar()
             }
 
             /*cbPoliticas.setOnClickListener {
@@ -47,8 +47,21 @@ class FormularioActivity : AppCompatActivity() {
                 val resultado = if(isChecked) "checked" else "unchecked"
                 textResultado.text = "Email: $resultado"
             }
+
+            switchNotificacoes.setOnCheckedChangeListener { _, isChecked ->
+                val resultado = if(isChecked) "checked" else "unchecked"
+                textResultado.text = "Notificações: $resultado"
+            }
         }
 
+    }
+
+    private fun exibirSnackBar() {
+        val snackBar = Snackbar.make(binding.root, "Formulario enviado", Snackbar.LENGTH_SHORT)
+        snackBar.setAction("Desfazer"){
+            Snackbar.make(binding.root, "Formulário desfeito", Snackbar.LENGTH_SHORT).show()
+        }
+        snackBar.show()
     }
 
     private fun radioButton() {
