@@ -3,6 +3,7 @@ package com.janatavares.modulojetpack
 import android.os.Bundle
 import android.widget.Toast
 import androidx.activity.enableEdgeToEdge
+import androidx.appcompat.app.AlertDialog
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.ViewCompat
 import androidx.core.view.WindowInsetsCompat
@@ -29,7 +30,8 @@ class FormularioActivity : AppCompatActivity() {
             btEnviar.setOnClickListener {
                 //checkbox()
                 //radioButton()
-                exibirSnackBar()
+                //exibirSnackBar()
+                caixaDialogoAlerta()
             }
 
             /*cbPoliticas.setOnClickListener {
@@ -53,6 +55,27 @@ class FormularioActivity : AppCompatActivity() {
                 textResultado.text = "Notificações: $resultado"
             }
         }
+
+    }
+
+    private fun caixaDialogoAlerta() {
+
+        //Também da pra fazer com encadeamento de métodos
+        val alertBuilder = AlertDialog.Builder(this)
+        alertBuilder.setTitle("Confirmar envio?")
+        alertBuilder.setMessage("Após confirmar não será possível desfazer a ação.")
+        alertBuilder.setNegativeButton("Cancelar"){
+            dialog, _ -> dialog.dismiss()
+        }
+
+        alertBuilder.setPositiveButton("Confirmar") { _, _ ->
+            Toast.makeText(this, "Formulario enviado", Toast.LENGTH_SHORT).show()
+        }
+
+        alertBuilder.setCancelable(false)
+
+        val alertDialog = alertBuilder.create()
+        alertDialog.show()
 
     }
 
