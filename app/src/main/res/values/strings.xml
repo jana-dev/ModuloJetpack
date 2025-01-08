@@ -1,3 +1,12 @@
 <resources>
-    <string name="app_name">ModuloJetpack</string>
+    <string name="app_name">Youtube</string>
+
+    <string-array name="categorias">
+        <item>Seleciona uma categoria</item>
+        <item>Eletronicos</item>
+        <item>Roupas</item>
+        <item>Calçados</item>
+        <item>Maquiagens &amp; Perfumes</item>
+    </string-array>
+
 </resources>

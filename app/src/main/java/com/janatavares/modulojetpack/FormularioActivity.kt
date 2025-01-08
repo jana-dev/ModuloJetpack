@@ -1,6 +1,10 @@
 package com.janatavares.modulojetpack
 
 import android.os.Bundle
+import android.view.View
+import android.widget.AdapterView
+import android.widget.AdapterView.OnItemSelectedListener
+import android.widget.ArrayAdapter
 import android.widget.Toast
 import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AlertDialog
@@ -26,12 +30,15 @@ class FormularioActivity : AppCompatActivity() {
             insets
         }
 
+        spinnerExibicao()
         with(binding){
             btEnviar.setOnClickListener {
                 //checkbox()
                 //radioButton()
                 //exibirSnackBar()
-                caixaDialogoAlerta()
+                //caixaDialogoAlerta()
+                spinnerSelecionarItem()
+
             }
 
             /*cbPoliticas.setOnClickListener {
@@ -55,6 +62,51 @@ class FormularioActivity : AppCompatActivity() {
                 textResultado.text = "Notificações: $resultado"
             }
         }
+
+    }
+
+    private fun spinnerSelecionarItem() {
+        val categoriaSelecionada = binding.spinnerCategorias.selectedItem
+        val posicao = binding.spinnerCategorias.selectedItemPosition
+
+        if(posicao == 0){
+            Toast.makeText(this, "Selecione uma categoria", Toast.LENGTH_SHORT).show()
+            return
+        }
+
+        binding.textResultado.text = "Categoria selecionada: $categoriaSelecionada"
+    }
+
+    private fun spinnerExibicao() {
+
+        //val categorias = listOf("Seleciona uma categoria","Categoria 1", "Categoria 2", "Categoria 3")
+
+        val categorias = resources.getStringArray(R.array.categorias)
+        binding.spinnerCategorias.adapter = ArrayAdapter<String>(
+            this,
+            android.R.layout.simple_spinner_dropdown_item,
+            categorias
+        )
+
+        binding.spinnerCategorias.onItemSelectedListener = object : OnItemSelectedListener {
+            override fun onItemSelected(
+                parent: AdapterView<*>?,
+                view: View?,
+                position: Int,
+                id: Long
+            ) {
+                //val itemSelecionado = parent?.getItemAtPosition(position)
+                val itemSelecionado = parent?.selectedItem
+                binding.textResultado.text = itemSelecionado.toString()
+            }
+
+            override fun onNothingSelected(parent: AdapterView<*>?) {
+                TODO("Not yet implemented")
+            }
+
+        }
+
+
 
     }
 
